@@ -33,7 +33,6 @@ static int watch_path(const char *path)
 		perror("inotify_init");
 		return 1;
 	}
-
 	wd = inotify_add_watch(fd, path, mask);
 	if (wd < 0)
 	{
@@ -43,7 +42,6 @@ static int watch_path(const char *path)
 
 	int l, i;
 	l = i = 0;
-
 	while (1)
 	{
 		i = 0;
@@ -65,7 +63,6 @@ static int watch_path(const char *path)
 			i += (sizeof(struct inotify_event) + ev->len);
 		}
 	}
-
 	return 0;
 }
 
